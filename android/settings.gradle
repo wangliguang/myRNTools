@@ -1,0 +1,5 @@
+rootProject.name = 'myRNTools'
+include ':keyboardbutton'
+project(':keyboardbutton').projectDir = new File(rootProject.projectDir, '../node_modules/keyboardbutton/android')
+
+include ':app'
