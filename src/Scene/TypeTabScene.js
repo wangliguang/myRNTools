@@ -24,6 +24,10 @@ import * as NavigationBar from '../tools/NavigationBar';
 
 export default class TypeTabScene extends Component {
 
+  componentWillAppear = () => {
+    alert('TypeTabScene')
+  }
+
   renderItem1(item) {
     const time = item.item.date;
     const markContent = item.item.markContent;

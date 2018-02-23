@@ -34,6 +34,10 @@ export default class Root extends Component {
     })
   }
 
+  componentWillAppear = () => {
+    alert('HomePage')
+  }
+
   goStorage() {
     jump('Storage');
   };
