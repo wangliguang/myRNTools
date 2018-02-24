@@ -35,7 +35,7 @@ export default class Root extends Component {
   }
 
   componentWillAppear = () => {
-    console.log(global.scenes);
+    alert('-');
   }
 
   goStorage() {

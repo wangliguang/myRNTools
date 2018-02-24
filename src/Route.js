@@ -12,10 +12,12 @@ import FirstScene from './Scene/RouteScene/FirstScene';
 import ScendScene from './Scene/RouteScene/ScendScene';
 import ThirdScene from './Scene/RouteScene/ThirdScene';
 
+import HocNavigation from './HocNavigation';
+
 const routeMap = {};
 
 routeMap.HomePage = { 
-  screen: HomePage,
+  screen: HocNavigation(HomePage),
 };
 
 routeMap.GGTimer = { 
