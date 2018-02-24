@@ -9,11 +9,11 @@ import {
 
 import {
   jump,
+  resetRouteStack,
 } from './Route.js';
 
 import * as NavigationBar from './tools/NavigationBar';
 import {API} from './tools/API/API';
-
 
 
 const onKeyboardShow = (event) => {
@@ -35,7 +35,7 @@ export default class Root extends Component {
   }
 
   componentWillAppear = () => {
-    alert('HomePage')
+    console.log(global.scenes);
   }
 
   goStorage() {
@@ -53,6 +53,11 @@ export default class Root extends Component {
   goTypeTab = () => {
     jump('TypeTab');
   }
+
+  goRouteScene = () => {
+    jump('FirstScene');
+  }
+
   render() {
     return (
       <View style={Styles.container}>
@@ -85,6 +90,11 @@ export default class Root extends Component {
         <Button
           onPress={this.goTypeTab}
           title={'TypeTab'}
+        /> 
+
+        <Button
+          onPress={this.goRouteScene}
+          title={'RouteScene'}
         /> 
 
       </View>

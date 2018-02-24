@@ -1,6 +1,56 @@
+import { NavigationActions } from 'react-navigation'
+/* *****************Container****************** */
 
+import HomePage from './HomePage';
+import GGTimerScene from './Scene/TimerScene';
+import GGLimitDoubleClickBtnScene from './Scene/LimitDoubleClickBtnScene';
+import KeyBoardScene from './Scene/KeyBoardScene';
+import StorageScene from './Scene/StorageScene'
+import TypeTabScene from './Scene/TypeTabScene';
 
-/* *****************路由配置****************** */
+import FirstScene from './Scene/RouteScene/FirstScene';
+import ScendScene from './Scene/RouteScene/ScendScene';
+import ThirdScene from './Scene/RouteScene/ThirdScene';
+
+const routeMap = {};
+
+routeMap.HomePage = { 
+  screen: HomePage,
+};
+
+routeMap.GGTimer = { 
+  screen: GGTimerScene,
+};
+
+routeMap.GGLimitDoubleClickBtn = { 
+  screen: GGLimitDoubleClickBtnScene,
+};
+
+routeMap.Storage = { 
+  screen: StorageScene,
+};
+
+routeMap.keyBoard = { 
+  screen: KeyBoardScene,
+};
+
+routeMap.TypeTab = { 
+  screen: TypeTabScene,
+};
+
+routeMap.FirstScene = {
+  screen: FirstScene,
+};
+
+routeMap.ScendScene = {
+  screen: ScendScene,
+};
+
+routeMap.ThirdScene = {
+  screen: ThirdScene,
+};
+
+/* *****************导航器配置****************** */
 //全局唯一的导航栏
 let navigator = null;
 
@@ -20,11 +70,43 @@ export function unRegisterNavigator() {
   navigator = null;
 }
 
+// 获取全局路由表
+export function getRouteMap() {
+  return routeMap;
+}
+
+export const InitailRoute = {
+  routeName: 'HomePage',
+};
+
 /* *****************路由跳转****************** */
 export const jump = (name, params) => {
-  navigator.navigate(name, params );
+  navigator._navigation.push(name, params );
 };
 
 export const goBack = () => {
-  navigator.goBack(null);
+  navigator._navigation.pop();
 };
+
+export const popN = (n: number) => {  
+  const routes = navigator.state.nav.routes;
+  console.log(navigator);
+  navigator._navigation.goBack(routes[n+1].key);
+};
+
+export const popToRoot = () => {
+  navigator._navigation.popToTop();
+};
+
+export const resetRouteStack = (name) => {
+  resetTo(name);
+};
+
+export const resetTo = (name, params?) => {
+  const { dispatch } = navigator;
+  dispatch(NavigationActions.reset({
+    index: 0,
+    actions: [ NavigationActions.navigate({ routeName: name, params }), ],
+  }))
+};
+

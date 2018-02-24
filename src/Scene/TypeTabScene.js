@@ -66,6 +66,7 @@ export default class TypeTabScene extends Component {
           onBack={()=>{goBack()}}
           title={'TypeTab'}
         />
+
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
           <TypeTab
             titleArray={['标题1', '标题2']}
