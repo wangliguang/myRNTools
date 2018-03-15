@@ -58,6 +58,10 @@ export default class Root extends Component {
     jump('FirstScene');
   }
 
+  goAndroidflow = () => {
+    jump('AndroidOverflow');
+  }
+
   render() {
     return (
       <View style={Styles.container}>
@@ -96,6 +100,11 @@ export default class Root extends Component {
           onPress={this.goRouteScene}
           title={'RouteScene'}
         /> 
+
+        <Button
+         onPress={this.goAndroidflow}
+         title={'android下overflow的hidden失效'}
+        />
 
       </View>
     )

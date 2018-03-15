@@ -7,6 +7,7 @@ import GGLimitDoubleClickBtnScene from './Scene/LimitDoubleClickBtnScene';
 import KeyBoardScene from './Scene/KeyBoardScene';
 import StorageScene from './Scene/StorageScene'
 import TypeTabScene from './Scene/TypeTabScene';
+import AndroidOverflow from './Scene/AndroidOverflow';
 
 import FirstScene from './Scene/RouteScene/FirstScene';
 import ScendScene from './Scene/RouteScene/ScendScene';
@@ -51,6 +52,10 @@ routeMap.ScendScene = {
 routeMap.ThirdScene = {
   screen: ThirdScene,
 };
+
+routeMap.AndroidOverflow = {
+  screen: AndroidOverflow,
+}
 
 /* *****************导航器配置****************** */
 //全局唯一的导航栏
